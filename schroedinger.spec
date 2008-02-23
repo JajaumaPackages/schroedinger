@@ -1,17 +1,18 @@
-%define abi 0.9
+%define abi 1.0
 
 Name:           schroedinger
-Version:        0.9.0
-Release:        2%{?dist}
+Version:        1.0.0
+Release:        1%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
 License:        LGPL/MIT/MPL
 URL:            http://schrodinger.sourceforge.net/
-Source0:        http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://diracvideo.schleef.org/download/schroedinger/schroedinger-%{version}.tar.gz
+#Source0:        http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  liboil-devel >= 0.3.12
+BuildRequires:  liboil-devel >= 0.3.13
 BuildRequires:  gstreamer-devel >= 0.10
 BuildRequires:  gstreamer-plugins-base-devel >= 0.10
 BuildRequires:  gtk-doc
@@ -63,7 +64,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%doc ChangeLog COPYING* NEWS TODO
+%doc COPYING* NEWS TODO
 %{_libdir}/libschroedinger-%{abi}.so.*
 
 %files devel
@@ -78,6 +79,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Fri Feb 22 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.0-1
+- Update to 1.0.0
+
 * Mon Feb 11 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 0.9.0-2
 - Rebuild for GCC 4.3
 
