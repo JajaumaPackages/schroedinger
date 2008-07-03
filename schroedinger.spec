@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -31,6 +31,7 @@ Group:          Development/Libraries
 Summary:        Development files for schrodinger
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig
+Requires:	liboil-devel
 
 %description devel
 Development files for schrodinger
@@ -78,6 +79,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Fri Jul  2 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.3-2
+- Devel subpackage needs to require liboil-devel.
+
 * Fri Jun 27 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.3-1
 - Update to 1.0.3.
 - Update URLs.
