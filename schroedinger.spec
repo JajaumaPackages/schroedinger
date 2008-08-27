@@ -1,8 +1,8 @@
 %define abi 1.0
 
 Name:           schroedinger
-Version:        1.0.3
-Release:        2%{?dist}
+Version:        1.0.5
+Release:        1%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Wed Aug 27 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.5-1
+- Update to 1.0.5
+
 * Fri Jul  2 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.3-2
 - Devel subpackage needs to require liboil-devel.
 
