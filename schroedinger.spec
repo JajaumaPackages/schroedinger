@@ -2,11 +2,12 @@
 
 Name:           schroedinger
 Version:        1.0.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
-License:        LGPL/MIT/MPL
+# No version is given for the GPL or the LGPL
+License:        GPL+ or LGPLv2+ or MIT or MPLv1.1
 URL:            http://www.diracvideo.org/
 Source0:	http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -79,6 +80,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Thu Sep  4 2008 Tom "spot" Callaway <tcallawa@redhat.com> - 1.0.5-2
+- fix license tag
+
 * Wed Aug 27 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.5-1
 - Update to 1.0.5
 
