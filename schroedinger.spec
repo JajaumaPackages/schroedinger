@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.5
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -80,6 +80,10 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Fri Sep 12 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.5-3
+- Bump release and rebuild against latest gstreamer-* packages to pick
+- up special gstreamer codec provides.
+
 * Thu Sep  4 2008 Tom "spot" Callaway <tcallawa@redhat.com> - 1.0.5-2
 - fix license tag
 
