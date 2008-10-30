@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -29,13 +29,13 @@ for the Dirac video codec.
 
 %package devel
 Group:          Development/Libraries
-Summary:        Development files for schrodinger
+Summary:        Development files for schroedinger
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig
 Requires:	liboil-devel
 
 %description devel
-Development files for schrodinger
+Development files for schroedinger
 
 %package -n gstreamer-plugins-schroedinger
 Group:          Applications/Multimedia
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Wed Oct 29 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.5-4
+- Fix some typos [BZ#469133]
+
 * Fri Sep 12 2008 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.5-3
 - Bump release and rebuild against latest gstreamer-* packages to pick
 - up special gstreamer codec provides.
