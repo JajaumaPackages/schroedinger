@@ -1,8 +1,8 @@
 %define abi 1.0
 
 Name:           schroedinger
-Version:        1.0.5
-Release:        5%{?dist}
+Version:        1.0.6
+Release:        1%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -12,7 +12,7 @@ URL:            http://www.diracvideo.org/
 Source0:	http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  liboil-devel >= 0.3.13
+BuildRequires:  liboil-devel >= 0.3.16
 BuildRequires:  gstreamer-devel >= 0.10
 BuildRequires:  gstreamer-plugins-base-devel >= 0.10
 BuildRequires:  gtk-doc
@@ -32,7 +32,7 @@ Group:          Development/Libraries
 Summary:        Development files for schroedinger
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig
-Requires:	liboil-devel
+Requires:	liboil-devel >= 0.3.16
 
 %description devel
 Development files for schroedinger
