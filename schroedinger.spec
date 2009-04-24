@@ -1,7 +1,7 @@
 %define abi 1.0
 
 Name:           schroedinger
-Version:        1.0.6
+Version:        1.0.7
 Release:        1%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Fri Apr 24 2009 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.7-1
+- Update to 1.0.7
+
 * Wed Feb 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.5-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
 
