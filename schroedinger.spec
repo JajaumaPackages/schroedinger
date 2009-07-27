@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
+* Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Fri Apr 24 2009 Jeffrey C. Ollie <jeff@ocjtech.us> - 1.0.7-1
 - Update to 1.0.7
 
