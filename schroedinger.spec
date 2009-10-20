@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -13,9 +13,13 @@ Source0:	http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  liboil-devel >= 0.3.16
+BuildRequires:  glew-devel >= 1.5.1
 BuildRequires:  gstreamer-devel >= 0.10
 BuildRequires:  gstreamer-plugins-base-devel >= 0.10
 BuildRequires:  gtk-doc
+
+#Moved to -bad - need to be investigated.
+Obsoletes:  gstreamer-plugins-schroedinger < %{version}
 
 %description
 The Schrödinger project will implement portable libraries for the high
@@ -37,12 +41,6 @@ Requires:	liboil-devel >= 0.3.16
 %description devel
 Development files for schroedinger
 
-%package -n gstreamer-plugins-schroedinger
-Group:          Applications/Multimedia
-Summary:        GStreamer Plugins that implement Dirac video encoding and decoding
-
-%description -n gstreamer-plugins-schroedinger
-GStreamer Plugins that implement Dirac video encoding and decoding
 
 %prep
 %setup -q
@@ -75,13 +73,11 @@ rm -rf %{buildroot}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/schroedinger-%{abi}.pc
 
-%files -n gstreamer-plugins-schroedinger
-%defattr(-,root,root,-)
-%{_libdir}/gstreamer-0.10/libgstschro.so
 
 %changelog
-* Tue Oct 20 2009 kwizart < kwizart at gmail.com > - 1.0.8-1
+* Tue Oct 20 2009 kwizart < kwizart at gmail.com > - 1.0.8-2
 - Update to 1.0.8
+- gstreamer-plugins-schroedinger is now in bad.
 
 * Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.7-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
