@@ -15,8 +15,9 @@ Patch1:         gst-plugins-schroedinger-plug.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libtool
-BuildRequires:  glew-devel
+
 BuildRequires:  liboil-devel >= 0.3.16
+BuildRequires:  glew-devel >= 1.5.1
 BuildRequires:  gstreamer-devel >= 0.10
 BuildRequires:  gstreamer-plugins-base-devel >= 0.10
 BuildRequires:  gtk-doc
