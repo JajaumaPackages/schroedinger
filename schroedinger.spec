@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.8
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -10,17 +10,11 @@ Group:          System Environment/Libraries
 License:        GPL+ or LGPLv2+ or MIT or MPLv1.1
 URL:            http://www.diracvideo.org/
 Source0:	http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
-Patch0:         gst-plugins-schroedinger-1.0.8.patch
-Patch1:         gst-plugins-schroedinger-plug.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
-BuildRequires:  libtool
 
 BuildRequires:  liboil-devel >= 0.3.16
 BuildRequires:  glew-devel >= 1.5.1
-BuildRequires:  gstreamer-devel >= 0.10
-BuildRequires:  gstreamer-plugins-base-devel >= 0.10
-BuildRequires:  gtk-doc
+
 
 %description
 The Schrödinger project will implement portable libraries for the high
@@ -42,26 +36,13 @@ Requires:	liboil-devel >= 0.3.16
 %description devel
 Development files for schroedinger
 
-%package -n gstreamer-plugins-schroedinger
-Group:          Applications/Multimedia
-Summary:        GStreamer Plugins that implement Dirac video encoding and decoding
-
-%description -n gstreamer-plugins-schroedinger
-GStreamer Plugins that implement Dirac video encoding and decoding
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1 -b .plug
-
-autoreconf -vif
 
 
 %build
 %configure --disable-static --enable-gtk-doc
-
-# hack to define the package name
-echo "#define GST_PACKAGE_NAME \"gst-plugins-schroedinger fedora rpm\"" >> config.h
 
 # remove rpath from libtool
 sed -i.rpath 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
@@ -93,13 +74,12 @@ rm -rf %{buildroot}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/schroedinger-%{abi}.pc
 
-%files -n gstreamer-plugins-schroedinger
-%defattr(-,root,root,-)
-%{_libdir}/gstreamer-0.10/libgstschro.so
-%exclude %{_libdir}/libgstbasevideo-0.10.a
-%exclude %{_includedir}/gstreamer-0.10
 
 %changelog
+* Mon Feb  1 2010 Nicolas CHauvet <kwizart@fedoraproject.org> - 1.0.8-4
+- Remove gstreamer-plugins-schroedinger 
+  Obsoleted by gst-plugins-bad-free introduction in Fedora.
+
 * Sun Oct 25 2009 kwizart < kwizart at gmail.com > - 1.0.8-3
 - Re-introduce gstreamer sub-package until seen in -good
 
