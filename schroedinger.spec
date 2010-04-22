@@ -1,8 +1,8 @@
 %define abi 1.0
 
 Name:           schroedinger
-Version:        1.0.8
-Release:        4%{?dist}
+Version:        1.0.9
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -10,10 +10,13 @@ Group:          System Environment/Libraries
 License:        GPL+ or LGPLv2+ or MIT or MPLv1.1
 URL:            http://www.diracvideo.org/
 Source0:	http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
+# Issue is known upstream, fixed in git and so fixed in NEXT_RELEASE
+Patch0:		%{name}-no-testsuite.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  liboil-devel >= 0.3.16
+BuildRequires:	orc-devel >= 0.4.3
 BuildRequires:  glew-devel >= 1.5.1
+BuildRequires:	gtk-doc
 
 
 %description
@@ -31,7 +34,7 @@ Group:          Development/Libraries
 Summary:        Development files for schroedinger
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig
-Requires:	liboil-devel >= 0.3.16
+Requires:	orc-devel >= 0.4.3
 
 %description devel
 Development files for schroedinger
@@ -39,7 +42,7 @@ Development files for schroedinger
 
 %prep
 %setup -q
-
+%patch0 -p1
 
 %build
 %configure --disable-static --enable-gtk-doc
@@ -76,6 +79,14 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue Apr 22 2010 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.9-2
+- Added dependency on gtk-doc
+
+* Fri Mar 05 2010 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.9-1
+- Update to 1.0.9
+- Dropped dependency on liboil
+- Added dependency on orc
+
 * Mon Feb  1 2010 Nicolas CHauvet <kwizart@fedoraproject.org> - 1.0.8-4
 - Remove gstreamer-plugins-schroedinger 
   Obsoleted by gst-plugins-bad-free introduction in Fedora.
