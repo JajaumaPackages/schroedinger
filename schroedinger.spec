@@ -1,22 +1,20 @@
 %define abi 1.0
 
 Name:           schroedinger
-Version:        1.0.9
-Release:        2%{?dist}
+Version:        1.0.10
+Release:        1%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
 # No version is given for the GPL or the LGPL
 License:        GPL+ or LGPLv2+ or MIT or MPLv1.1
 URL:            http://www.diracvideo.org/
-Source0:	http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
-# Issue is known upstream, fixed in git and so fixed in NEXT_RELEASE
-Patch0:		%{name}-no-testsuite.patch
+Source0:        http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:	orc-devel >= 0.4.3
+BuildRequires:  orc-devel >= 0.4.10
 BuildRequires:  glew-devel >= 1.5.1
-BuildRequires:	gtk-doc
+BuildRequires:  gtk-doc
 
 
 %description
@@ -34,7 +32,7 @@ Group:          Development/Libraries
 Summary:        Development files for schroedinger
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig
-Requires:	orc-devel >= 0.4.3
+Requires:       orc-devel >= 0.4.10
 
 %description devel
 Development files for schroedinger
@@ -42,7 +40,7 @@ Development files for schroedinger
 
 %prep
 %setup -q
-%patch0 -p1
+
 
 %build
 %configure --disable-static --enable-gtk-doc
@@ -53,22 +51,28 @@ sed -i.rpath 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
 make %{?_smp_mflags}
 
+
 %install
 rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 find %{buildroot} -name \*.la -delete
 
+
 %clean
 rm -rf %{buildroot}
 
+
 %post -p /sbin/ldconfig
 
+
 %postun -p /sbin/ldconfig
+
 
 %files
 %defattr(-,root,root,-)
 %doc COPYING* NEWS TODO
 %{_libdir}/libschroedinger-%{abi}.so.*
+
 
 %files devel
 %defattr(-,root,root,-)
@@ -79,6 +83,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Oct 24 2010 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.10-1
+- Update to 1.0.10
+
 * Tue Apr 22 2010 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.9-2
 - Added dependency on gtk-doc
 
