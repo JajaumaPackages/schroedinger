@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -83,6 +83,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Feb 09 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.10-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
 * Sun Oct 24 2010 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.10-1
 - Update to 1.0.10
 
