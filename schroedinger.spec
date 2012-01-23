@@ -1,8 +1,8 @@
 %define abi 1.0
 
 Name:           schroedinger
-Version:        1.0.10
-Release:        3%{?dist}
+Version:        1.0.11
+Release:        1%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -83,6 +83,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Mon Jan 23 2012 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.11-1
+- Update to 1.0.11
+
 * Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.10-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
