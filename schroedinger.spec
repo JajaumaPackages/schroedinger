@@ -2,7 +2,7 @@
 
 Name:           schroedinger
 Version:        1.0.11
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Portable libraries for the high quality Dirac video codec
 
 Group:          System Environment/Libraries
@@ -12,7 +12,7 @@ URL:            http://www.diracvideo.org/
 Source0:        http://www.diracvideo.org/download/schroedinger/schroedinger-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  orc-devel >= 0.4.10
+BuildRequires:  orc-devel >= 0.4.16
 BuildRequires:  glew-devel >= 1.5.1
 BuildRequires:  gtk-doc
 
@@ -83,6 +83,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Jan 27 2012 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.11-2
+- Bump required orc version to 0.4.16
+
 * Mon Jan 23 2012 Fabian Deutsch <fabiand@fedoraproject.org> - 1.0.11-1
 - Update to 1.0.11
 
